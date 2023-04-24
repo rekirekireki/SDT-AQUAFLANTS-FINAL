@@ -1,0 +1,33 @@
+body {
+	background-color: #f7f7f7;
+}
+#video-bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: -1;
+}
+.card {
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.card-header {
+	background-color: #f7f7f7;
+}
+.form-group label {
+	font-family: "Poppins", sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+}
+.form-control {
+	border-radius: 5px;
+}
+#toggle-password {
+	background-color: #f7f7f7;
+}
+
+.fa-eye-slash {
+	display: none;
+}

@@ -1,0 +1,70 @@
+body {
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	overflow: hidden;
+}
+#video-bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: -1;
+}
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.button-container {
+	background-color: rgba(255, 255, 255, 0.8);
+	padding: 20px;
+	border-radius: 10px;
+}
+.btn {
+	margin: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.btn .btn-title {
+	font-family: 'Lora', serif;
+	font-size: 24px;
+	font-weight: bold;
+	margin-top: -10px;
+	text-shadow: 0 0 5px #ffffff;
+
+}
+.btn span {
+	font-family: "Poppins", sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	margin-top: 5px;
+	color: #666;
+}
+h1 {
+	font-family: "Poppins", sans-serif;
+	font-size: 48px;
+	font-weight: bold;
+	color: #fff;
+	margin-top: 150px;
+	text-align: center;
+	text-shadow: 0 0 5px #45ee86;
+}
+h2 {
+	font-family: "Poppins", sans-serif;
+	font-size: 48px;
+	font-weight: bold;
+	color: #fff;
+	margin-top: 10px;
+	text-align: center;
+	text-shadow: 0 0 5px #45ee86;
+}
