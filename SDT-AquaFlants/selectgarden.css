@@ -1,0 +1,33 @@
+#bg-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translateX(-50%) translateY(-50%);
+  }
+  
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+  
+.card {
+    cursor: pointer;
+  }
+
+  .card:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+  }
+
+  h1 {
+	font-family: 'Lora', serif;
+	font-size: 50   px;
+	font-weight: bold;
+	margin-top: -10px;
+	text-shadow: 0 0 5px #ffffff;
+}
+  
