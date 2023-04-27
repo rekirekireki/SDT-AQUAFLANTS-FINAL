@@ -10,9 +10,11 @@ $query->execute();
 
 if ($query->rowCount() > 0) {
     echo "Welcome";
-    echo "<script>window.open('mainpage.php','_self')</script>";
-    }
-    else {
+    $row = $query->fetch();
+    $userID = $row['ID'];
+    $_SESSION['userID'] = $userID;
+    header("location: landingpage.php"); 
+} else {
     echo "<script>alert('Sorry, Wrong Username or Password!')</script>";
     echo "<script>window.open('loginpage.php','_self')</script>";
 }

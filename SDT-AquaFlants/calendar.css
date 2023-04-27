@@ -8,12 +8,12 @@ html, body {
   #external-events {
     position: fixed;
     z-index: 2;
-    top: 20px;
+    top: 50px;
     left: 20px;
     width: 150px;
     padding: 0 10px;
     border: 1px solid #ccc;
-    background: #eee;
+    background: white;
   }
   
   #external-events .fc-event {
@@ -31,3 +31,4 @@ html, body {
     max-width: 1100px;
     margin: 20px auto;
   }
+

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["userID"])) {
-	header("location: mainpage.php");
+	header("location: index.html");
 	die();
 }
 include_once("connection.php");

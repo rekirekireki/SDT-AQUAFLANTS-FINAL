@@ -38,13 +38,11 @@
     <h1 class="text-center my-4">AquaFlants</h1>
     <div class="row justify-content-center">
       <div class="col-6">
-        <form>
         <form class="form-inline my-2 my-lg-0" action="searchguest.php" method="post">
 				<input class="form-control mr-sm-2" maxlength="50" type="search" placeholder="Search" aria-label="Search" name="search" required>
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
           </div>
-        </form>
       </div>
     </div>
   </div>

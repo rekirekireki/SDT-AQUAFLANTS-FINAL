@@ -6,18 +6,20 @@ if (!isset($_SESSION["userID"])) {
 }
 include_once("connection.php");
 ?>
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-	<title>AquaFlants</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="mainpage.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="landingpage.css">
 
 	<link rel="stylesheet" type="text/css" href="calendar.css">
 	<link href="/docs/dist/demo-to-codepen.css" rel="stylesheet">
@@ -67,86 +69,90 @@ include_once("connection.php");
 			calendar.render();
 		});
 	</script>
+
+	<style>
+		#external-events {
+			position: fixed;
+			z-index: 2;
+			top: 100px;
+			left: 20px;
+			width: 150px;
+			padding: 0 10px;
+			border: 1px solid #ccc;
+			background: white;
+		}
+
+		#calendar {
+			max-width: 1100px;
+			margin: 20px auto;
+			background-color: white;
+		}
+	</style>
 </head>
 
 <body>
-	<!-- Top Navigation Bar -->
-	<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-		<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; AquaFlants</span>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
-						Plants
+	<video id="bg-video" autoplay muted loop>
+		<source src="bgvid.mp4" type="video/mp4">
+		Your browser does not support the video tag.
+	</video>
+	<div class="pageOne">
+		<!-- NAVIGATION BAR -->
+		<div class="navBar">
+			<ul>
+				<li class="title"><a>AquaFlants</a></li>
+				<li class="interact"><a href="landingpage.php">Home</a></li>
+				<li class="interact"><a href="view.php">View Plants</a></li>
+				<li class="interact"><a href="writer.php">Add Plants</a></li>
+				<li class="title">
+					<a>
+						<form action="search.php" method="post">
+							<input class="search" type="text" name="search" placeholder="Search a Plants...">
+						</form>
 					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">Angiosperms</a>
-						<a class="dropdown-item" href="#">Ferns</a>
-						<a class="dropdown-item" href="#">Succulents</a>
-						<a class="dropdown-item" href="#">Epiphytes</a>
-						<a class="dropdown-item" href="#">House Plants</a>
-					</div>
 				</li>
+				<li class="interact" style="float:right"><a class="active" href="logout.php">Log-out</a></li>
 			</ul>
-			<form class="form-inline my-2 my-lg-0" action="search.php" method="post">
-				<input class="form-control mr-sm-2" maxlength="50" type="search" placeholder="Search" aria-label="Search" name="search" required>
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-			</form>
-		</div>
-	</nav>
-
-	<!-- Side Menu -->
-	<div class="sayd">
-		<div id="mySidenav" class="sidenav">
-			<a href="#">Home</a>
-			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-			<a href="#">Profile</a>
-			<a href="#">Blog</a>
-			<a href="index.html">Signout</a>
 		</div>
 
-		<!-- Page Content -->
-		<div class="container-fluid" style="margin-top: 80px;">
-			<h1>Welcome to AquaFlants!</h1>
 
-		</div>
 
-		<div id="external-events">
-			<p>
-				<strong>Draggable Events</strong>
-			</p>
+		<!-- BODY, DITO KAYO MAG LAGAY NG CONTENT -->
+		<div class="parentCont1">
 
 			<div id="external-events">
-				<form action="save_events.php" method="POST">
-					<p>
-						<strong>Draggable Events</strong>
-					</p>
 
-					<div class="fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event">
-						<input type="hidden" name="event_title[]" value="Water">
-						<div class="fc-event-main">Water</div>
-					</div>
-					<div class="fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event">
-						<input type="hidden" name="event_title[]" value="Sunlight">
-						<div class="fc-event-main">Sunlight</div>
-					</div>
-					<button type="submit" class="btn btn-primary">Save Events</button>
-				</form>
+				<div id="external-events">
+					<form action="save_events.php" method="POST">
+						<p>
+							<strong>Draggable Events</strong>
+						</p>
+
+						<div class="fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event">
+							<input type="hidden" name="event_title[]" value="Water">
+							<div class="fc-event-main">Watered</div>
+						</div>
+						<div class="fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event">
+							<input type="hidden" name="event_title[]" value="Sunlight">
+							<div class="fc-event-main">Sunlight</div>
+						</div>
+						<button type="submit" class="btn btn-primary">Save Events</button>
+					</form>
+				</div>
+
+				<p>
+					<input type="checkbox" id="drop-remove">
+					<label for="drop-remove">remove after drop</label>
+				</p>
+			</div>
+			<div id='calendar-container'>
+				<div id='calendar'></div>
 			</div>
 
-			<p>
-				<input type="checkbox" id="drop-remove">
-				<label for="drop-remove">remove after drop</label>
-			</p>
+			<script src="mainpage.js"></script>
 		</div>
-		<div id='calendar-container'>
-			<div id='calendar'></div>
-		</div>
-
-		<script src="mainpage.js"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>

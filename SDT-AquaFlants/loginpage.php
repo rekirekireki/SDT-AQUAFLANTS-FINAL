@@ -1,9 +1,10 @@
 <?php
 session_start();
-if (!isset($_SESSION["userID"])) {
+if (isset($_SESSION["userID"])) {
 	header("location: landingpage.php");
 	die();
 }
+
 include_once("connection.php");
 ?>
 
@@ -48,7 +49,7 @@ include_once("connection.php");
 								<button type="submit" class="btn btn-primary btn-block">Log in</button>
 							</div>
 							<div class="form-group">
-								<button type="button" class="btn btn-secondary btn-block">Create an account</button>
+								<button type="button" class="btn btn-secondary btn-block" onclick="window.location.href='createaccount.php'">Create an account</button>
 							</div>
 						</form>
 					</div>

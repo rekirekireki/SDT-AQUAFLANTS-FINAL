@@ -5,7 +5,7 @@ if(isset($_SESSION["userID"])){
 	
 	$uid = $_SESSION["userID"];
 	
-	$query = $pdo->prepare("SELECT * FROM users WHERE userID = :uid");
+	$query = $pdo->prepare("SELECT * FROM users WHERE ID = :uid");
 	$query->bindParam(':uid',$uid);
 	$query->execute();
 	
@@ -15,7 +15,7 @@ if(isset($_SESSION["userID"])){
 	
 	
 } else {
-	header("location: login.php");
+	header("location: loginpage.php");
 	die();
 }
 ?>

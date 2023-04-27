@@ -1,9 +1,10 @@
 <?php
 session_start();
-if (!isset($_SESSION["userID"])) {
+if (isset($_SESSION["userID"])) {
   header("location: landingpage.php");
   die();
 }
+
 include_once("connection.php");
 ?>
 
@@ -46,7 +47,7 @@ include_once("connection.php");
         <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
       </div>
       <button type="submit" class="btn btn-primary">Sign-Up</button>
-      <a href="loginpage.html" class="btn btn-secondary">Back to Log In</a>
+      <a href="loginpage.php" class="btn btn-secondary">Back to Log In</a>
     </form>
   </div>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

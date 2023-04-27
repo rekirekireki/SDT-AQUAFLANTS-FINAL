@@ -33,9 +33,9 @@ include_once("connection.php");
 		<div class="navBar">
 			<ul>
 				<li class="title"><a>AquaFlants</a></li>
-				<li class="interact"><a href="form1.php">Home</a></li>
+				<li class="interact"><a href="landingpage.php">Home</a></li>
 				<li class="interact"><a href="view.php">View Plants</a></li>
-				<li class="interact"><a href="addProd.php">Add Plants</a></li>
+				<li class="interact"><a href="writer.php">Add Plants</a></li>
 				<li class="title">
 					<a>
 						<form action="search.php" method="post">
@@ -74,7 +74,7 @@ include_once("connection.php");
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Calendar</h5>
-            <a href="#" class="btn btn-primary">Go to Calendar</a>
+            <a href="mainpage.php" class="btn btn-primary">Go to Calendar</a>
           </div>
         </div>
       </div>

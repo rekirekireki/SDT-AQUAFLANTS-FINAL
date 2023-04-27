@@ -133,7 +133,7 @@ OR plantWater LIKE '%$search%'");
 						</tr>
 					<?php } ?>
 				</table>
-				<button onclick="window.location.href='mainpage.php'">Back to Main Page</button>
+				<button onclick="window.location.href='guest.php'">Back to Main Page</button>
 			</div>
 		</div>
 	</div>
