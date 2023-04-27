@@ -69,6 +69,30 @@ include_once("connection.php");
                 <option value="Epiphytes">Epiphytes</option>
                 <option value="Houseplants">Houseplants</option>
               </select>
+              
+            </div>
+
+            <div class="form-group">
+            <label for="Type of Plant">Type of Plant:</label>
+            <div class="selectWrapper">
+
+              <select name="categoryplant" id="nameplant" style="height: 40px; width: 360px;" class="selectBox">
+                <option value="" selected disabled hidden>Choose here</option>
+                <option value="Tree">Tree </option>
+                <option value="Fern">Fern </option>
+                <option value="Shrub">Shrub</option>
+                <option value="Vine">Vine</option>
+                <option value="Epiphyte">Epiphyte</option>
+                <option value="Rosette">Rosette</option>
+                <option value="Groundcover">Groundcover</option>
+                <option value="Cactus">Cactus</option>
+                <option value="Pitcher plant">Pitcher plant</option>
+                <option value="Trailing">Trailing</option>
+                <option value="Trailing">Evergreen perennial</option>
+                <option value="Trailing">Evergreen perennial vine</option>
+                
+              </select>
+              
             </div>
             <div class="form-group">
               <label for="Type of Plant">Garden type of plant</label>
