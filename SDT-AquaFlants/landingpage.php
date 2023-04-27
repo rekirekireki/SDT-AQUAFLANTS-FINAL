@@ -18,84 +18,16 @@ include_once("connection.php");
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="landingpage.css">
 
-	<style>
-		* {
-			margin: 0;
-			padding: 0;
-		}
-
-		body {
-			max-width: 100%;
-			background-size: cover;
-			font-family: "Poppins", sans-serif;
-		}
-
-		html {
-			scroll-behavior: smooth;
-		}
-
-		.pageOne {
-			height: 100vh;
-			overflow: hidden;
-			top: 0;
-		}
-
-		ul {
-			list-style-type: none;
-			margin: 0;
-			padding: 0;
-			overflow: hidden;
-			background-color: #333;
-			text-decoration: none;
-		}
-
-		li {
-			float: left;
-		}
-
-		li a {
-			display: block;
-			color: white;
-			text-align: center;
-			padding: 14px 16px;
-			text-decoration: none;
-		}
-
-		.interact a:hover:not(.active) {
-			background-color: #111;
-			text-decoration: none;
-		}
-
-		.active {
-			background-color: #C18381;
-		}
-
-		.title {
-			font-weight: bold;
-			color: white;
-		}
-
-		.search {
-			width: 30vh;
-			border: none;
-			margin-right: 16px;
-			font-size: 17px;
-		}
-
-		.textIntro {
-			margin-top: 100px;
-			text-align: center;
-			color: black;
-			font-size: 50px;
-			font-weight: bold;
-		}
-
-
-	</style>
 </head>
 
 <body>
+<video id="bg-video" autoplay muted loop>
+        <source src="bgvid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>  
 	<div class="pageOne">
 		<!-- NAVIGATION BAR -->
 		<div class="navBar">
@@ -120,12 +52,37 @@ include_once("connection.php");
 		<!-- BODY, DITO KAYO MAG LAGAY NG CONTENT -->
 		<div class="parentCont1"> 
 			<div class="introduc">
- 
-			
-			</div>
-		</div>
-	</div>
-
+      <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Profile</h5>
+            <a href="#" class="btn btn-primary">Go to Profile</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Blog</h5>
+            <a href="#" class="btn btn-primary">Go to Blog</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Calendar</h5>
+            <a href="#" class="btn btn-primary">Go to Calendar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>
