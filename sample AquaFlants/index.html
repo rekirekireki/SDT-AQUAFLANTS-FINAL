@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <video id="bg-video" autoplay muted loop>
+        <source src="bgvid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video> 
+	<header>
+		<div class="navBar">
+			<ul>
+				<li class="title"><h1><a>AquaFlants</a></h1></li>
+
+				<li class="title">
+					<a>
+						<form action="search.php" method="post">
+							<input class="search" type="text" name="search" placeholder="Search a Plants...">
+						</form>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</header>
+    <div class="top">
+        <h1 class="bo">AquaFlants</h1><br>
+        <h2 class="ba">We Plant Plants</h2>
+    </div>
+	    <main>
+		    <form id="login-form" action="#" method="post">
+			    <h3><label for="username">Username or Email:</label></h3>
+			    <input type="text" id="username" name="username" required>
+			    <h3><label for="password">Password:</label></h3>
+			    <input type="password" id="password" name="password" required>
+			    <button type="submit">Login</button>
+		    </form>
+		    <div id="options">
+			    <a href="createaccount.html">Create New Account</a>
+		    </div>
+	    </main>
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    text-decoration: none;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  
+  .title {
+    font-weight: bold;
+    color: white;
+  }
+  
+  .search {
+    width: 30vh;
+    border: none;
+    margin-right: 16px;
+    font-size: 17px;
+  }
+  
+  .textIntro {
+    margin-top: 100px;
+    text-align: center;
+    color: black;
+    font-size: 50px;
+    font-weight: bold;
+  }
+
+h1 {
+	margin: 0;
+}
+
+#search-form {
+	float: right;
+	margin-top: 10px;
+}
+
+#search-box {
+	padding: 5px;
+	border: none;
+	border-radius: 3px;
+	font-size: 16px;
+	margin-right: 5px;
+}
+
+#search-button {
+	padding: 5px;
+	border: none;
+	border-radius: 3px;
+	background-color: #FFFFFF;
+	color: #4267B2;
+	cursor: pointer;
+}
+
+.h3{
+    font-family: "Poppins", sans-serif;
+}
+
+main {
+	padding: 20px;
+    display: block;
+    margin-right: 65%;
+}
+
+form {
+	width: 300px;
+	margin: auto;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+input[type="text"], input[type="password"] {
+	padding: 5px;
+	border: 1px solid #CCCCCC;
+	border-radius: 3px;
+	width: 100%;
+	margin-bottom: 10px;
+	font-size: 16px;
+}
+
+button[type="submit"] {
+	padding: 5px;
+	border: none;
+	border-radius: 3px;
+	background-color: #4267B2;
+	color: #FFFFFF;
+	cursor: pointer;
+    text-align: center;
+}
+
+#options {
+	margin-top: 10px;
+	text-align: center;
+    font-family: "Poppins", sans-serif;
+}
+
+#options a {
+	margin-right: 10px;
+}
+
+
+.bo {
+	font-family: "Poppins", sans-serif;
+	font-size: 48px;
+	font-weight: bold;
+	color: #2e2e2e;
+	margin-top: 30px;
+	text-align: center;
+	text-shadow: 0 0 5px #45ee86;
+}
+.ba {
+	font-family: "Poppins", sans-serif;
+	font-size: 48px;
+	font-weight: bold;
+	color: #2e2e2e;
+	margin-top: 10px;
+	text-align: center;
+	text-shadow: 0 0 5px #45ee86;
+}
+
+
+#bg-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translateX(-50%) translateY(-50%);
+  }
+

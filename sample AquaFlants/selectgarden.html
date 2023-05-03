@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Choose Your Garden Type</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lora|Montserrat|Playfair+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="selectgarden.css">
+</head>
+<body>    
+  <video id="bg-video" autoplay muted loop>
+    <source src="bgvid.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  
+  <div class="navBar">
+    <ul>
+        <li class="title"><a>AquaFlants</a></li>
+        <li class="interact"><a href="homepage.html">Home</a></li>
+        <li class="interact"><a href="profile.html">Profile</a></li>
+        <li class="interact"><a href="view.php">View Plants</a></li>
+        <li class="interact"><a href="writer.php">Add Plants</a></li>
+        <li class="title">
+            <a>
+                <form action="search.php" method="post">
+                    <input class="search" type="text" name="search" placeholder="Search a Plants...">
+                </form>
+            </a>
+        </li>
+        <li class="interact" style="float:right"><a class="active" href="logout.php">Log-out</a></li>
+    </ul>
+</div>
+
+  <div class="container">
+    <h1 class="text-center my-4">Choose Your Garden Type</h1>
+    <div class="card-deck">
+      <div class="card mb-4">
+        <img class="card-img-top" src="small.jpg" alt="Small-Scale Backyard">
+        <div class="card-body">
+          <h5 class="card-title">Small-Scale Backyard</h5>
+          <p class="card-text">Perfect for those with limited space, this garden is designed for small-scale backyard gardening.</p>
+          <a href="smalltable.html" class="btn btn-primary">Choose This Garden Type</a>
+        </div>
+      </div>
+      <div class="card mb-4">
+        <img class="card-img-top" src="medium.jpg" alt="Medium-Scale Backyard">
+        <div class="card-body">
+          <h5 class="card-title">Medium-Scale Backyard</h5>
+          <p class="card-text">Ideal for those with a bit more space, this garden is designed for medium-scale backyard gardening.</p>
+          <a href="mediumtable.html" class="btn btn-primary">Choose This Garden Type</a>
+        </div>
+      </div>
+      <div class="card mb-4">
+        <img class="card-img-top" src="large.jpg" alt="Large-Scale Backyard">
+        <div class="card-body">
+          <h5 class="card-title">Large-Scale Backyard</h5>
+          <p class="card-text">For those with ample space and a desire to grow a wide variety of crops, this garden is designed for large-scale backyard gardening.</p>
+          <a href="largetable.html" class="btn btn-primary">Choose This Garden Type</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

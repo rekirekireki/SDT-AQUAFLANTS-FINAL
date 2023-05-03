@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add a Plant</title>
+  <link rel="stylesheet" type="text/css" href="addplant.css">
+</head>
+<body>
+    <video id="bg-video" autoplay muted loop>
+        <source src="bgvid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video> 
+
+      <div class="navBar">
+        <ul>
+            <li class="title"><a>AquaFlants</a></li>
+            <li class="interact"><a href="homepage.html">Home</a></li>
+            <li class="interact"><a href="profile.html">Profile</a></li>
+            <li class="interact"><a href="view.php">View Plants</a></li>
+            <li class="interact"><a href="writer.php">Add Plants</a></li>
+            <li class="title">
+                <a>
+                    <form action="search.php" method="post">
+                        <input class="search" type="text" name="search" placeholder="Search a Plants...">
+                    </form>
+                </a>
+            </li>
+            <li class="interact" style="float:right"><a class="active" href="logout.php">Log-out</a></li>
+        </ul>
+    </div>
+
+  <div class="container">
+    <h1 class="he">Add a Plant</h1>
+    <form>
+      <div class="form-group">
+        <label for="plant-type">Type of Plant</label>
+        <input type="text" id="plant-type" name="plant-type" required>
+      </div>
+      <div class="form-group">
+        <label for="plant-name">Name of Plant</label>
+        <input type="text" id="plant-name" name="plant-name" required>
+      </div>
+      <div class="form-group">
+        <label for="garden-type">Garden Type</label>
+        <input type="text" id="garden-type" name="garden-type" required>
+      </div>
+      <div class="form-group">
+        <label for="plant-description">Plant Description</label>
+        <textarea id="plant-description" name="plant-description" rows="5" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="soil-preference">Soil Preference</label>
+        <select id="soil-preference" name="soil-preference">
+          <option value="">Select an option</option>
+          <option value="clay">Clay</option>
+          <option value="sandy">Sandy</option>
+          <option value="loamy">Loamy</option>
+          <option value="chalky">Chalky</option>
+          <option value="peaty">Peaty</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="water-preference">Water Preference</label>
+        <select id="water-preference" name="water-preference">
+          <option value="">Select an option</option>
+          <option value="dry">Dry</option>
+          <option value="moderate">Moderate</option>
+          <option value="wet">Wet</option>
+          <option value="constant">Constant</option>
+          <option value="intermittent">Intermittent</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="sunlight-preference">Sunlight Preference</label>
+        <select id="sunlight-preference" name="sunlight-preference">
+          <option value="">Select an option</option>
+          <option value="full-sun">Full Sun</option>
+          <option value="partial-sun">Partial Sun</option>
+          <option value="partial-shade">Partial Shade</option>
+          <option value="full-shade">Full Shade</option>
+          <option value="low-light">Low Light</option>
+        </select>
+      </div>
+      <div class="form-group">
+            <label for="plant-image">Plant Image</label>
+            <div class="image-upload">
+              <input type="file" id="plant-image" name="plant-image">
+              <label for="plant-image" class="info-icon" title="Image must not exceed 10MB">ℹ️</label>
+            </div>
+        </div>
+      </div>
+      <button type="submit">Add Plant</button>
+    </form>
+  </div>
+</body>
+</html>
