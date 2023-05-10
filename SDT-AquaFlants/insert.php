@@ -2,16 +2,15 @@
 include_once("connection.php");
 
 // Check if any of the form fields are empty
-if (empty($_POST['typeplant']) || empty($_POST['categoryplant']) || empty($_POST['nameplant']) ||
+if (empty($_POST['typeplant']) || empty($_POST['nameplant']) ||
     empty($_POST['plantdes']) || empty($_POST['gardenSize']) || empty($_POST['soilpref']) ||
-    empty($_POST['sunpref']) || empty($_POST['waterpref']) || empty($_FILES['image']['name'])) {
+    empty($_POST['sunpref']) || empty($_POST['waterpref'])) {
     echo "<script>alert('Sorry! All fields are required')</script>";
-    echo "<script>window.open('writer.php','_self')</script>";
+    echo "<script>window.open('addplant.php','_self')</script>";
     exit;
 }
 
 $plantType = $_POST['typeplant'];
-$plantCategory = $_POST['categoryplant'];
 $plantName = $_POST['nameplant'];
 $plantDes = $_POST['plantdes'];
 $gardenSize = $_POST['gardenSize'];
@@ -34,11 +33,10 @@ $newname = rand(1000, 99999).".".$imgExt;
 if(in_array($imgExt,$validExt)){
     if($size < 5000000){ // 5 MB
         if(move_uploaded_file($tempName,$path.$newname)){
-            $insertQuery = $pdo->prepare("INSERT INTO planttbl (plantType, plantCategory, plantName, plantDes, gardenSize, plantSoil, plantSun, plantWater, Photo)
-            VALUES (:plantType, :plantCategory, :plantName, :plantDes,:gardenSize, :soilPref, :sunlightPref, :waterPref, :plantPhoto)");
+            $insertQuery = $pdo->prepare("INSERT INTO planttbl (plantType, plantName, plantDes, gardenSize, plantSoil, plantSun, plantWater, Photo)
+            VALUES (:plantType, :plantName, :plantDes,:gardenSize, :soilPref, :sunlightPref, :waterPref, :plantPhoto)");
             
             $insertQuery->bindParam(':plantType', $plantType);
-            $insertQuery->bindParam(':plantCategory', $plantCategory);
             $insertQuery->bindParam(':plantName', $plantName);
             $insertQuery->bindParam(':plantDes', $plantDes);
             $insertQuery->bindParam(':soilPref', $soilPref);
@@ -49,17 +47,17 @@ if(in_array($imgExt,$validExt)){
             
             $insertQuery->execute();
             echo "<script>alert('Successfully Register')</script>";
-            echo "<script>window.open('writer.php','_self')</script>";
+            echo "<script>window.open('addplant.php','_self')</script>";
         } else {
             echo "<script>alert('Sorry! Error uploading image')</script>";
-            echo "<script>window.open('writer.php','_self')</script>";
+            echo "<script>window.open('addplant.php','_self')</script>";
         }
     } else {
         echo "<script>alert('Sorry! Your file is too large')</script>";
-        echo "<script>window.open('writer.php','_self')</script>";
+        echo "<script>window.open('addplant.php','_self')</script>";
     }
 } else {
     echo "<script>alert('Sorry! Invalid Extension')</script>";
-    echo "<script>window.open('writer.php','_self')</script>";
+    echo "<script>window.open('addplant.php','_self')</script>";
 }
 ?>

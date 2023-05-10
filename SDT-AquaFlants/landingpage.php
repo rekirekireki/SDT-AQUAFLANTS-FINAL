@@ -4,6 +4,8 @@ if (!isset($_SESSION["userID"])) {
 	header("location: index.html");
 	die();
 }
+
+$user_id = $_SESSION['userID'];
 include_once("connection.php");
 ?>
 
@@ -19,7 +21,7 @@ include_once("connection.php");
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="landingpage.css">
+  <link rel="stylesheet" href="homepage.css">
 
 </head>
 
@@ -34,8 +36,9 @@ include_once("connection.php");
 			<ul>
 				<li class="title"><a>AquaFlants</a></li>
 				<li class="interact"><a href="landingpage.php">Home</a></li>
+        <li class="interact"><a href="profile.php">Profile</a></li>
 				<li class="interact"><a href="view.php">View Plants</a></li>
-				<li class="interact"><a href="writer.php">Add Plants</a></li>
+				<li class="interact"><a href="addplant.php">Add Plants</a></li>
 				<li class="title">
 					<a>
 						<form action="search.php" method="post">
@@ -50,39 +53,28 @@ include_once("connection.php");
 
 
 		<!-- BODY, DITO KAYO MAG LAGAY NG CONTENT -->
-		<div class="parentCont1"> 
-			<div class="introduc">
-      <div class="container mt-5">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Profile</h5>
-            <a href="#" class="btn btn-primary">Go to Profile</a>
+        <div class="container">
+            <h1 class="text-center my-4">AquaFlants</h1>
+            <div class="card-deck">
+              <div class="card mb-4">
+                <img class="card-img-top" src="profile.png" alt="Small-Scale Backyard">
+                <div class="card-body">
+                  <h5 class="card-title">Profile Page</h5>
+                  <a href="profile.php" class="btn btn-primary">See Your Profile</a>
+                </div>
+              </div>
+              <div class="card mb-4">
+                <img class="card-img-top" src="calendar.png" alt="Large-Scale Backyard">
+                <div class="card-body">
+                  <h5 class="card-title">Calendar</h5>
+                  <a href="mainpage.php" class="btn btn-primary">Calendar Journal</a>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Blog</h5>
-            <a href="#" class="btn btn-primary">Go to Blog</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Calendar</h5>
-            <a href="mainpage.php" class="btn btn-primary">Go to Calendar</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+          <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>

@@ -92,7 +92,6 @@ OR plantType LIKE '%$search%'
 OR gardenSize LIKE '%$search%'
 OR plantSoil LIKE '%$search%'
 OR plantSun LIKE '%$search%'
-OR plantCategory LIKE '%$search%'
 OR plantWater LIKE '%$search%'");
 				$viewQuery->execute();
 				$totalRecords = $viewQuery->rowCount();
@@ -107,7 +106,6 @@ OR plantWater LIKE '%$search%'");
 					<tr>
 						<th>Picture</th>
 						<th>Type of Plant</th>
-						<th>Category of Plant</th>
 						<th>Garden Size</th>
 						<th>Name</th>
 						<th>Description</th>
@@ -120,7 +118,6 @@ OR plantWater LIKE '%$search%'");
 					while ($rows = $viewQuery->fetch()) {
 						$plantPhoto = $rows['Photo'];
 						$plantType = $rows['plantType'];
-						$plantCategory = $rows['plantCategory'];
 						$gardenSize = $rows['gardenSize'];
 						$plantName = $rows['plantName'];
 						$plantDes = $rows['plantDes'];
@@ -132,7 +129,6 @@ OR plantWater LIKE '%$search%'");
 						<tr>
 							<td class="ctd"><img src="Plants/<?php echo $plantPhoto; ?>" alt="Plant Picture" width="100" /></td>
 							<td><?php echo $plantType; ?></td>
-							<td><?php echo $plantCategory; ?></td>
 							<td><?php echo $plantName; ?></td>
 							<td><?php echo $plantDes; ?></td>
 							<td><?php echo $gardenSize; ?></td>
@@ -142,7 +138,7 @@ OR plantWater LIKE '%$search%'");
 						</tr>
 					<?php } ?>
 				</table>
-				<button onclick="window.location.href='mainpage.php'">Back to Main Page</button>
+				<button onclick="window.location.href='landingpage.php'">Back to Main Page</button>
 			</div>
 		</div>
 	</div>

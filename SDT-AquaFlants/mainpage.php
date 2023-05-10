@@ -4,8 +4,15 @@ if (!isset($_SESSION["userID"])) {
 	header("location: index.html");
 	die();
 }
+
+$user_id = $_SESSION['userID'];
 include_once("connection.php");
 ?>
+
+<?php
+$latest_date = date('Y-m-d'); // Get current date in YYYY-MM-DD format
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,72 +27,79 @@ include_once("connection.php");
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="landingpage.css">
-
 	<link rel="stylesheet" type="text/css" href="calendar.css">
-	<link href="/docs/dist/demo-to-codepen.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.6/index.global.min.js"></script>
-	<script src="/docs/dist/demo-to-codepen.js"></script>
-	<script>
-		document.addEventListener('DOMContentLoaded', function() {
-			var Calendar = FullCalendar.Calendar;
-			var Draggable = FullCalendar.Draggable;
-
-			var containerEl = document.getElementById('external-events');
-			var calendarEl = document.getElementById('calendar');
-			var checkbox = document.getElementById('drop-remove');
-
-			// initialize the external events
-			// -----------------------------------------------------------------
-
-			new Draggable(containerEl, {
-				itemSelector: '.fc-event',
-				eventData: function(eventEl) {
-					return {
-						title: eventEl.innerText
-					};
-				}
-			});
-
-			// initialize the calendar
-			// -----------------------------------------------------------------
-
-			var calendar = new Calendar(calendarEl, {
-				headerToolbar: {
-					left: 'prev,next today',
-					center: 'title',
-					right: 'dayGridMonth,timeGridWeek,timeGridDay'
-				},
-				editable: true,
-				droppable: true, // this allows things to be dropped onto the calendar
-				drop: function(info) {
-					// is the "remove after drop" checkbox checked?
-					if (checkbox.checked) {
-						// if so, remove the element from the "Draggable Events" list
-						info.draggedEl.parentNode.removeChild(info.draggedEl);
-					}
-				}
-			});
-
-			calendar.render();
-		});
-	</script>
+	<script src='js/dist/index.global.js'></script>
 
 	<style>
-		#external-events {
-			position: fixed;
-			z-index: 2;
-			top: 100px;
-			left: 20px;
-			width: 150px;
-			padding: 0 10px;
-			border: 1px solid #ccc;
-			background: white;
-		}
-
 		#calendar {
 			max-width: 1100px;
-			margin: 20px auto;
+			margin: 0 auto;
 			background-color: white;
+		}
+
+		#external-events {
+			margin: 0 auto;
+			width: 100%;
+			max-width: 300px;
+			margin-top: 50px;
+		}
+
+		.form-group {
+			margin-bottom: 20px;
+		}
+
+		label {
+			display: block;
+			font-size: 18px;
+			font-weight: bold;
+			margin-bottom: 5px;
+		}
+
+		input[type="text"],
+		textarea {
+			width: 100%;
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+			background-color: #f1f1f1;
+		}
+
+		input[type="datetime-local"],
+		input[type="file"] {
+			width: 100%;
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+			background-color: #f1f1f1;
+			height: 40px;
+		}
+
+		input[type="checkbox"] {
+			margin-right: 10px;
+		}
+
+		input[type="submit"] {
+			background-color: #4CAF50;
+			color: #fff;
+			padding: 10px 20px;
+			border-radius: 5px;
+			border: none;
+			font-size: 18px;
+			cursor: pointer;
+		}
+
+		input[type="submit"]:hover {
+			background-color: #3e8e41;
+		}
+
+		select {
+			width: 100%;
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+			background-color: #f1f1f1;
+			height: 40px;
+			margin-bottom: 20px;
 		}
 	</style>
 </head>
@@ -114,45 +128,199 @@ include_once("connection.php");
 			</ul>
 		</div>
 
-
-
-		<!-- BODY, DITO KAYO MAG LAGAY NG CONTENT -->
-		<div class="parentCont1">
-
-			<div id="external-events">
-
-				<div id="external-events">
-					<form action="save_events.php" method="POST">
-						<p>
-							<strong>Draggable Events</strong>
-						</p>
-
-						<div class="fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event">
-							<input type="hidden" name="event_title[]" value="Water">
-							<div class="fc-event-main">Watered</div>
-						</div>
-						<div class="fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event">
-							<input type="hidden" name="event_title[]" value="Sunlight">
-							<div class="fc-event-main">Sunlight</div>
-						</div>
-						<button type="submit" class="btn btn-primary">Save Events</button>
-					</form>
+		<div id="external-events">
+			<form method="POST" action="save_events.php"  enctype="multipart/form-data">
+				<div class="form-group">
+					<label for="event-name">Event Name:</label>
+					<input type="text" id="event-name" name="title" required>
 				</div>
 
-				<p>
-					<input type="checkbox" id="drop-remove">
-					<label for="drop-remove">remove after drop</label>
-				</p>
-			</div>
-			<div id='calendar-container'>
-				<div id='calendar'></div>
-			</div>
+				<div class="form-group">
+					<label for="start-date">Start Date:</label>
+					<input type="datetime-local" id="start-date" name="start_datetime" required>
+				</div>
 
-			<script src="mainpage.js"></script>
+				<div class="form-group">
+					<label for="end-date">End Date:</label>
+					<input type="datetime-local" id="end-date" name="end_datetime" required>
+				</div>
+
+				<div class="form-group">
+					<label for="description">Description:</label><br>
+					<textarea id="description" name="description" rows="4" cols="50"></textarea>
+				</div>
+
+				<div class="form-group">
+					<label for="water">Water:</label>
+					<select id="water" name="event-watered">
+						<option value="Hadn't Received Water Yet">Hadn't Received Water Yet</option>
+						<option value="Water Received">Water Received</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="sunlight">Sunlight:</label>
+					<select id="sunlight" name="event-sunlight">
+						<option value="Hadn't Received Sunlight Yet">Hadn't Received Sunlight Yet</option>
+						<option value="Sunlight Received">Sunlight Received</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="image-upload">Image Upload:</label>
+					<input type="file" id="image-upload" name="event-image" required>
+				</div>
+
+				<input type="submit" value="Submit">
+			</form>
 		</div>
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+		<div id='calendar'></div>
+
+		<div id="eventModal" class="modal fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="eventModalTitle"></h5>
+						<button type="button" class="close" data-dismiss="modal">
+							<span>&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-md-6">
+								<p>Start time: <span id="eventModalStart"></span></p>
+								<p>End time: <span id="eventModalEnd"></span></p>
+							</div>
+							<div class="col-md-6">
+							<img id="eventModalImage" src="Plants/<?php echo $event['plantImg']; ?>" alt="Plant Picture" class="img-fluid" width="500">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="eventModalDescription">Description</label>
+							<textarea id="eventModalDescription" class="form-control" readonly></textarea>
+						</div>
+						<div class="form-group">
+							<p>Sunlight Status: <span id="eventModalSunlight"></span></p>
+						</div>
+						<div class="form-group">
+							<p>Water Status: <span id="eventModalWatered"></span></p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<div id="eventModalID" hidden></div>
+							<button id="delete" type="button" class="btn btn-danger">Delete</button>
+						</div>
+					</div>
+					<script>
+						$(document).on('click', '.fc-event', function() {
+							$('#eventModalTitle').html($(this).data('title'));
+							$('#eventModalStart').html($(this).data('start'));
+							$('#eventModalEnd').html($(this).data('end'));
+							$('#eventModalImage').attr('src', $(this).data('image'));
+							$('#eventModalDescription').html($(this).data('description'));
+
+							// Retrieve the sunlight and watered data
+							var sunlightStatus = $(this).data('sunlight');
+							var wateredStatus = $(this).data('watered');
+							$('#eventModal').modal('show');
+						});
+					</script>
+				</div>
+			</div>
+		</div>
+
+
+		<?php
+		include_once("connection.php");
+
+		// Prepare the statement with a placeholder for the user ID
+		$stmt = $pdo->prepare("SELECT * FROM userevents WHERE userID = ?");
+		$stmt->execute([$user_id]);
+
+		$events = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+		$formatted_events = [];
+		foreach ($events as $event) {
+			$formatted_events[] = [
+				'id' => $event['eventID'],
+				'title' => $event['eventName'],
+				'start' => date('Y-m-d\TH:i:s', strtotime($event['start_Date'])),
+				'end' => date('Y-m-d\TH:i:s', strtotime($event['end_date'])),
+				'timezone' => 'UTC',
+				'description' => $event['description'],
+				'image' => $event['plantImg'], // Change '.jpg' to the actual file extension of your image
+				'watered' => $event['watered'],
+				'sunlight' => $event['sunlight']
+			];
+		}
+
+		// Pass the formatted events to the FullCalendar constructor
+		echo "<script>console.log('User ID:', " . json_encode($formatted_events) . ");</script>";;
+		?>
+
+		<script>
+			var scheds = $.parseJSON('<?= json_encode($formatted_events) ?>')
+		</script>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				var calendarEl = document.getElementById('calendar');
+
+				var calendar = new FullCalendar.Calendar(calendarEl, {
+					initialDate: '<?php echo $latest_date; ?>',
+					events: <?php echo json_encode($formatted_events); ?>,
+					headerToolbar: {
+						start: 'prev,next today',
+						center: 'title',
+						end: 'dayGridMonth,timeGridWeek,timeGridDay'
+					},
+
+				});
+
+				calendar.on('eventClick', function(info) {
+					$('#eventModalID').text(info.event.id);
+					$('#eventModalTitle').text(info.event.title);
+					$('#eventModalStart').text(moment(info.event.start).format('MMMM Do YYYY, h:mm:ss a'));
+					$('#eventModalEnd').text(moment(info.event.end).format('MMMM Do YYYY, h:mm:ss a'));
+					$('#eventModalImage').attr('src', info.event.extendedProps.image);
+					$('#eventModalDescription').val(info.event.extendedProps.description);
+					$('#eventModalWatered').text(info.event.extendedProps.watered);
+					$('#eventModalSunlight').text(info.event.extendedProps.sunlight);
+				});
+
+				calendar.render();
+			});
+		</script>
+		<script>
+			$('#delete').click(function() {
+				var id = $('#eventModalID').text(); // get ID from modal
+				if (!!id) {
+					var _conf = confirm("Are you sure to delete this scheduled event?");
+					if (_conf === true) {
+						location.href = "./delete-event.php?id=" + id;
+					}
+				} else {
+					alert("Event is undefined");
+				}
+			});
+		</script>
+
+
+</body>
+
+<script src="mainpage.js"></script>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
 </body>
 
 </html>
