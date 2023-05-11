@@ -82,18 +82,18 @@ $search = $_POST['search'];
 			<div class="container1">
 				<h1><b>Search result for: <?php echo $search; ?></b></h1>
 				<?php
-				$viewQuery = $pdo->prepare("SELECT * FROM planttbl WHERE plantName LIKE '%$search%'
-OR plantType LIKE '%$search%'
-OR gardenSize LIKE '%$search%'
-OR plantSoil LIKE '%$search%'
-OR plantSun LIKE '%$search%'
-OR plantWater LIKE '%$search%'");
+				$viewQuery = $pdo->prepare("SELECT * FROM planttbl WHERE (plantName LIKE '%$search%'
+				OR plantType LIKE '%$search%'
+				OR gardenSize LIKE '%$search%'
+				OR plantSoil LIKE '%$search%'
+				OR plantSun LIKE '%$search%'
+				OR plantWater LIKE '%$search%') AND plantStatus = 1");
 				$viewQuery->execute();
 				$totalRecords = $viewQuery->rowCount();
 
 				if ($totalRecords == 0) {
 					echo "<p>Cannot find any matching records.</p>";
-					echo "<button onclick=\"window.location.href='guest.php'\">Back to Main Page</button>";
+					echo "<button onclick=\"window.location.href='index.php'\">Back to Main Page</button>";
 					exit();
 				}
 				?>
@@ -133,7 +133,7 @@ OR plantWater LIKE '%$search%'");
 						</tr>
 					<?php } ?>
 				</table>
-				<button onclick="window.location.href='guest.php'">Back to Main Page</button>
+				<button onclick="window.location.href='index.php'">Back to Main Page</button>
 			</div>
 		</div>
 	</div>

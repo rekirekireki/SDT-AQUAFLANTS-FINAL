@@ -1,8 +1,8 @@
 <?php
 session_start();
 if (!isset($_SESSION["userID"])) {
-  header("location: index.html");
-  die();
+	header("location: index.php");
+	die();
 }
 
 $user_id = $_SESSION['userID'];
@@ -32,22 +32,23 @@ $viewQuery->execute();
   </video>
 
   <div class="navBar">
-    <ul>
-      <li class="title"><a>AquaFlants</a></li>
-      <li class="interact"><a href="landingpage.php">Home</a></li>
+			<ul>
+				<li class="title"><a>AquaFlants</a></li>
+				<li class="interact"><a href="landingpage.php">Home</a></li>
         <li class="interact"><a href="profile.php">Profile</a></li>
 				<li class="interact"><a href="view.php">View Plants</a></li>
 				<li class="interact"><a href="addplant.php">Add Plants</a></li>
-      <li class="title">
-        <a>
-          <form action="search.php" method="post">
-            <input class="search" type="text" name="search" placeholder="Search a Plants...">
-          </form>
-        </a>
-      </li>
-      <li class="interact" style="float:right"><a class="active" href="logout.php">Log-out</a></li>
-    </ul>
-  </div>
+				<li class="title">
+					<a>
+						<form action="search.php" method="post">
+							<input class="search" type="text" name="search" placeholder="Search a Plants...">
+						</form>
+					</a>
+				</li>
+				<li class="interact" style="float:right"><a class="active" href="logout.php">Log-out</a></li>
+			</ul>
+		</div>
+
 
   <h1 class="hi">User Profile</h1>
 

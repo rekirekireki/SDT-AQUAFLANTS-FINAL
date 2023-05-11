@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION["userID"])) {
+  header("location: index.php");
+  die();
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -16,9 +24,9 @@
     <ul>
       <li class="title"><a>AquaFlants</a></li>
       <li class="interact"><a href="landingpage.php">Home</a></li>
-        <li class="interact"><a href="profile.php">Profile</a></li>
-				<li class="interact"><a href="view.php">View Plants</a></li>
-				<li class="interact"><a href="addplant.php">Add Plants</a></li>
+      <li class="interact"><a href="profile.php">Profile</a></li>
+      <li class="interact"><a href="view.php">View Plants</a></li>
+      <li class="interact"><a href="addplant.php">Add Plants</a></li>
       <li class="title">
         <a>
           <form action="search.php" method="post">
@@ -30,12 +38,19 @@
     </ul>
   </div>
 
+
   <div class="container">
     <h1 class="he">Add a Plant</h1>
     <form action="insert.php" method="post" enctype="multipart/form-data">
       <div class="form-group">
         <label for="plant-type">Type of Plant</label>
-        <input type="text" id="plant-type" name="typeplant" required>
+        <select id="type" name="type" required>
+          <option value="Flower">Flower</option>
+          <option value="Fruit">Fruit</option>
+          <option value="Herb">Herb</option>
+          <option value="Tree">Tree</option>
+          <option value="Vegetable">Vegetable</option>
+        </select>
       </div>
       <div class="form-group">
         <label for="plant-name">Name of Plant</label>

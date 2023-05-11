@@ -27,7 +27,7 @@ if ($result['count'] > 0) {
     $insertQuery->execute();
     if ($insertQuery) {
         echo "<script>alert('Successfully Registered')</script>";
-        echo "<script>window.open('mainpage.php','_self')</script>";
+        echo "<script>window.open('index.php','_self')</script>";
     } else {
         echo "<script>alert('Error in Registering')</script>";
     }
